@@ -2,7 +2,8 @@ package com.example.jwt_authenticate.config;
 
 import com.example.jwt_authenticate.entity.User;
 import com.example.jwt_authenticate.repository.UserRepository;
-import io.jsonwebtoken.io.IOException;
+import java.io.IOException;
+
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -29,9 +30,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain)
-            throws ServletException, IOException, java.io.IOException {
+            throws ServletException, IOException {
 
         String authHeader = request.getHeader("Authorization");
+
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);

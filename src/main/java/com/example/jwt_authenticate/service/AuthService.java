@@ -6,9 +6,12 @@ import com.example.jwt_authenticate.dto.LoginRequest;
 import com.example.jwt_authenticate.dto.RegisterRequest;
 import com.example.jwt_authenticate.entity.User;
 import com.example.jwt_authenticate.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+
 
 @Service
 public class AuthService {
@@ -21,6 +24,8 @@ public class AuthService {
 
     @Autowired
     private JwtService jwtService;
+
+
 
     public AuthResponse register(RegisterRequest request) {
         User user = new User();
